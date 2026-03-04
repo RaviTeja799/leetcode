@@ -14,13 +14,13 @@ class Solution(object):
             slow = slow.next
             fast = fast.next.next
         curr = slow.next
+        slow.next = None
         prev = None
         while curr!=None:
             later = curr.next
             curr.next = prev
             prev = curr
             curr = later
-        slow.next = None
         t1 = head
         t2 = prev
         while t2!=None:
