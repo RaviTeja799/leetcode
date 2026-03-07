@@ -1,38 +1,40 @@
 class Solution {
+    public int left(int [] nums, int target){
+        int val = -1;
+        int low = 0, high = nums.length -1;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            if(nums[mid]==target){
+                val = mid;
+                high = mid - 1;
+            }
+            else if(nums[mid]>target){
+                high = mid - 1;
+            }
+            else low = mid + 1;
+        }
+        return val;
+    }
+    public int right(int [] nums, int target){
+        int val = -1;
+        int low = 0, high = nums.length -1;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            if(nums[mid]==target){
+                val = mid;
+                low = mid + 1;
+            }
+            else if(nums[mid]>target){
+                high = mid - 1;
+            }
+            else low = mid + 1;
+        }
+        return val;
+    }
     public int[] searchRange(int[] nums, int target) {
-        int n = nums.length;
-        int ans[] = new int[2];
-        ans[0]=-1;
-        ans[1]=-1;
-        int l = 0,h = n-1;
-        while(l<=h){
-            int m = l+(h-l)/2;
-            if(nums[m]==target){
-                ans[0]=m;
-                h=m-1;
-            }
-            else if(nums[m]>target){
-                h = m-1;
-            }
-            else{
-                l = m + 1;
-            }
-        }
-        l = 0;
-        h = n-1;
-        while(l<=h){
-            int m = l+(h-l)/2;
-            if(nums[m]==target){
-                ans[1]=m;
-                l=m+1;
-            }
-            else if(nums[m]>target){
-                h = m-1;
-            }
-            else{
-                l = m + 1;
-            }
-        }
+        int [] ans = new int[2];
+        ans[0] = left(nums,target);
+        ans[1] = right(nums,target);
         return ans;
     }
 }
