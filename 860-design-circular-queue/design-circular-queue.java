@@ -3,10 +3,9 @@ class MyCircularQueue {
     int front,rear,cnt , k;
     public MyCircularQueue(int k) {
         this.k = k;
-        this.front = 0;
+        this.front = -1;
         this.rear = -1;
         this.arr = new int[k];
-        // Arrays.fill(arr,-1);
         this.cnt = 0;
     }
     
@@ -15,6 +14,7 @@ class MyCircularQueue {
         rear = (rear+1)%k;
         arr[rear]=value;
         cnt++;
+        if(front == -1) front = 0;
         return true;
     }
     
