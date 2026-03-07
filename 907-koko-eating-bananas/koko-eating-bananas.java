@@ -15,7 +15,7 @@ class Solution {
     public long check(int piles[] , int mid){
         long cnt = 0;
         for(int i = 0; i < piles.length; i++){
-            cnt += (piles[i] + mid - 1) / mid;
+            cnt += Math.ceil((double)piles[i] / mid);
         }
         return cnt;
     }       
