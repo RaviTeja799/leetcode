@@ -15,7 +15,6 @@ class MyCircularQueue {
         rear = (rear+1)%k;
         arr[rear]=value;
         cnt++;
-        if(front == -1) front = 0;
         return true;
     }
     
