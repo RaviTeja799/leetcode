@@ -24,7 +24,6 @@ class Solution {
     //     return list;
     // }
     public List<Integer> inorderTraversal(TreeNode root) {
-        TreeNode curr = root;
         if(root == null) return list;
         inorderTraversal(root.left);
         list.add(root.val);
