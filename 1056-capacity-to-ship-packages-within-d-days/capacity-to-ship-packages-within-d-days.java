@@ -1,36 +1,38 @@
 class Solution {
-    public int left(int [] weights, int left, int right,int days){
-        int val = right;
-        int low = left, high = right;
-        while(low<=high){
-            int mid = low+(high-low)/2;
-            if(check(weights,mid) <= days){
-                val = mid;
-                high = mid - 1;
+    public int check(int nums[] , int mid){
+        int sum = 0;
+        int cnt = 1;
+        for(int num: nums){
+            if(sum + num > mid){
+                cnt+=1;
+                sum = num;
             }
-            else low = mid + 1;
-        }
-        return val;
-    }
-    public long check(int weights[], int mid){
-        int temp = mid;
-        long cnt = 1;
-        for(int i = 0; i < weights.length; i++){
-            if(mid<weights[i]) {
-                mid = temp;
-                cnt++;
+            else{
+                sum+=num;
             }
-            mid-=weights[i];
         }
         return cnt;
     }
     public int shipWithinDays(int[] weights, int days) {
-        int left = weights[0];
-        int sum = 0;
-        for(int i = 0; i < weights.length; i++){
-            left = Math.max(weights[i] , left);
-            sum+=weights[i];
+        int n = weights.length;
+        
+        int low = weights[0] , high = 0;
+        for(int num : weights) {
+            high += num;
+            low = Math.max(low,num);
         }
-        return left(weights, left,sum,days);
+        int ans = high;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            System.out.println(low + " " + high + " " + mid + " " + check(weights,mid));
+            if(check(weights,mid)<=days){
+                ans = mid;
+                high = mid - 1;
+            }
+            else{
+                low = mid + 1;
+            }
+        }
+        return ans;
     }
 }
