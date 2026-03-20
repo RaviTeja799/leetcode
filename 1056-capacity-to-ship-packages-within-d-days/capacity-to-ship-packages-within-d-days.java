@@ -5,11 +5,9 @@ class Solution {
         for(int num: nums){
             if(sum + num > mid){
                 cnt+=1;
-                sum = num;
+                sum = 0;
             }
-            else{
-                sum+=num;
-            }
+            sum+=num;
         }
         return cnt;
     }
