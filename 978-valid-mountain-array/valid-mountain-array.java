@@ -1,0 +1,15 @@
+class Solution {
+    public boolean validMountainArray(int[] arr) {
+        int i = 0;
+        int n = arr.length;
+        while(i < n-1 && arr[i+1]>arr[i]){
+            i++;
+        }
+        if(i == 0 || i == n-1) return false;
+        while( i < n-1 &&  arr[i]>arr[i+1]){
+            i++;
+        }
+        if(i == n - 1) return true;
+        return false;
+    }
+}
