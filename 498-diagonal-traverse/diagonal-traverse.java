@@ -30,7 +30,8 @@ class Solution {
             List<Integer> list = map.get(d);
 
             if (d % 2 == 0) {
-                reverse(list);
+                // reverse(list);
+                Collections.reverse(list);
             }
             // add to result array
             for (int num : list)
