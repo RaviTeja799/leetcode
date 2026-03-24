@@ -14,8 +14,23 @@ class Solution {
         // }
 
         // Sorting
-        Arrays.sort(nums);
-        int val = nums[nums.length/2];
-        return val;
+        // Arrays.sort(nums);
+        // int val = nums[nums.length/2];
+        // return val;
+
+        // Boyer Moore 
+        int ele = nums[0],cnt = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(cnt<=0){
+                cnt++;
+                ele = nums[i];
+            }
+            else if (nums[i]==ele) cnt++;
+            else cnt--;
+        }
+        for(int i = 0; i < nums.length; i++){
+            if (nums[i]==ele) cnt++;
+        }
+        return ele;
     }
 }
