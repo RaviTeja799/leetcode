@@ -28,9 +28,9 @@ class Solution {
             else if (nums[i]==ele) cnt++;
             else cnt--;
         }
-        for(int i = 0; i < nums.length; i++){
-            if (nums[i]==ele) cnt++;
-        }
+        // for(int i = 0; i < nums.length; i++){
+        //     if (nums[i]==ele) cnt++;
+        // }
         return ele;
     }
 }
