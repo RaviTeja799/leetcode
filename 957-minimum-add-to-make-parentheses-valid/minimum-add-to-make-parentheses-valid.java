@@ -3,8 +3,7 @@ class Solution {
         Stack<Character> stack = new Stack<>();
         int n = s.length();
         int cnt = 0;
-        for(int i = 0; i < n; i++){
-            char ch = s.charAt(i);
+        for(char ch : s.toCharArray()){
             if(ch == '('){
                 stack.push(ch);
             }
@@ -17,7 +16,6 @@ class Solution {
                 }
             }
         }
-        // if(stack.isEmpty()) return 0;
         return stack.size()+cnt;
     }
 }
