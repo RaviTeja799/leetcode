@@ -9,35 +9,13 @@
  * }
  */
 class Solution {
+    ListNode reverse(ListNode curr, ListNode prev) {
+        if (curr == null) return prev;
+        ListNode next = curr.next; // store
+        curr.next = prev;          // revers
+        return reverse(next, curr);
+    }
     public ListNode reverseList(ListNode head) {
-        // Approach 1
-
-        // ListNode temp = head;
-        // Stack<Integer> stk = new Stack<>();
-        // if(head == null) return null;
-        // while(temp!=null) {
-        //     stk.push(temp.val);
-        //     temp = temp.next;
-        // }
-        // ListNode newhead = new ListNode(stk.pop());
-        // temp = newhead;
-        // while(!stk.empty()){
-        //     ListNode newNode = new ListNode(stk.pop());
-        //     temp.next = newNode;
-        //     temp = temp.next;
-        // }
-        // return newhead;
-
-        // Approach 2
-
-        ListNode curr = head,prev = null;
-        while(curr !=null){
-            ListNode next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-
-        return prev;
+        return reverse(head,null);
     }
 }
