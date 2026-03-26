@@ -14,7 +14,7 @@ class Solution {
                         li.add(nums[i]);
                         li.add(nums[left]);
                         li.add(nums[right]);
-                        Collections.sort(li);
+                        // Collections.sort(li);
                         ans.add(li);  
                         left++;
                         right--;
